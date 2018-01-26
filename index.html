@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+Created by Sean Ganey on January 18, 2018-->
+<html>
+<body>
+
+<h1>My Second Google Map</h1>
+
+<select onchange="getMap(this)">
+<option value="paris">Paris</option>
+  <option value="egypt">Egypt</option>
+  <option value="russia">Russia</option>
+  <option value="laos">Laos</option>
+</select>
+
+<div id="googleMap" style="width:100%;height:400px"></div>
+
+<script>
+function myMap(lat, long) {
+   if(lat == null){
+     lat = 48.864716;
+   }
+   if(long == null){
+     long = 2.349014;
+   }
+   var mapCanvas = document.getElementById("googleMap");
+   var mapOptions = {
+     center: new google.maps.LatLng(lat, long), zoom: 10
+   };
+   var map = new google.maps.Map(mapCanvas, mapOptions);
+ }
+function getMap(e){
+  if(e.value == "paris"){
+    myMap(48.864716,2.349014);
+  }
+else if(e.value == "egypt"){
+    myMap(26.7561,29.8623);
+  }
+else if(e.value == "russia"){
+    myMap(56.1304,106.3468);
+  }
+else if(e.value == "laos"){
+    myMap(19.0000,102.3667);
+  }
+}
+function initMap() {
+        var uluru = {lat: -25.363, lng: 131.044};
+        var map = new google.maps.Map(document.getElementById('map'), {
+          zoom: 4,
+          center: uluru
+        });
+        var marker = new google.maps.Marker({
+          position: uluru,
+          map: map
+        });
+      }
+</script>
+
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyAirzxUjEGKQ6ULR2Iu9D9Gc3mTI2njhlU&callback=myMap"></script>
+<!--
+To use this code on your website, get a free API key from Google.
+Read more at: https://www.w3schools.com/graphics/google_maps_basic.asp
+-->
+
+</body>
+</html>
